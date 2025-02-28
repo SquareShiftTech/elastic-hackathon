@@ -1,0 +1,146 @@
+{
+  "index_patterns": ["medical_records*"],
+  "data_stream": { },
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 1
+    },
+    "mappings": {
+      "properties": {
+        "@timestamp": { "type": "date" },
+        "patient_id": { "type": "keyword" },
+        "name": { "type": "text" },
+        "age": { "type": "integer" },
+        "gender": { "type": "keyword" },
+        "blood_type": { "type": "keyword" },
+        "weight_kg": { "type": "float" },
+        "height_cm": { "type": "integer" },
+        "bmi": { "type": "float" },
+        "diagnosis": { "type": "text" },
+        "report_date": { "type": "date" },
+        "vital_signs": {
+          "properties": {
+            "temperature": { "type": "float" },
+            "pulse": { "type": "integer" },
+            "respiratory_rate": { "type": "integer" },
+            "blood_pressure_systolic": { "type": "integer" },
+            "blood_pressure_diastolic": { "type": "integer" },
+            "oxygen_saturation": { "type": "integer" }
+          }
+        },
+        "heart": {
+          "properties": {
+            "basic_metrics": {
+              "properties": {
+                "heart_rate": { "type": "integer" },
+                "blood_pressure_systolic": { "type": "integer" },
+                "blood_pressure_diastolic": { "type": "integer" },
+                "heart_rhythm": { "type": "keyword" }
+              }
+            },
+            "cardiac_markers": {
+              "properties": {
+                "troponin": { "type": "float" },
+                "bnp": { "type": "float" },
+                "ck_mb": { "type": "float" }
+              }
+            },
+            "lipid_panel": {
+              "properties": {
+                "cholesterol_total": { "type": "integer" },
+                "hdl": { "type": "integer" },
+                "ldl": { "type": "integer" },
+                "triglycerides": { "type": "integer" },
+                "cholesterol_ratio": { "type": "float" }
+              }
+            },
+            "heart_symptoms": { "type": "text" },
+            "heart_risk_score": { "type": "integer" },
+            "heart_risk_factors": { "type": "keyword" }
+          }
+        },
+        "lungs": {
+          "properties": {
+            "respiratory_metrics": {
+              "properties": {
+                "lung_capacity": { "type": "float" },
+                "fev1": { "type": "float" },
+                "fvc": { "type": "float" },
+                "fev1_fvc_ratio": { "type": "float" },
+                "peak_flow": { "type": "integer" },
+                "oxygen_saturation": { "type": "integer" },
+                "respiratory_rate": { "type": "integer" }
+              }
+            },
+            "lung_symptoms": { "type": "text" },
+            "lung_risk_score": { "type": "integer" }
+          }
+        },
+        "kidneys": {
+          "properties": {
+            "blood_tests": {
+              "properties": {
+                "creatinine_level": { "type": "float" },
+                "bun": { "type": "float" },
+                "gfr": { "type": "integer" }
+              }
+            },
+            "kidney_symptoms": { "type": "text" },
+            "kidney_risk_score": { "type": "integer" }
+          }
+        },
+        "liver": {
+          "properties": {
+            "liver_function_tests": {
+              "properties": {
+                "alt": { "type": "float" },
+                "ast": { "type": "float" },
+                "bilirubin_total": { "type": "float" }
+              }
+            },
+            "liver_symptoms": { "type": "text" },
+            "liver_risk_score": { "type": "integer" }
+          }
+        },
+        "brain": {
+          "properties": {
+            "cognitive_assessment": {
+              "properties": {
+                "mental_alertness_score": { "type": "integer" }
+              }
+            },
+            "brain_symptoms": { "type": "text" },
+            "brain_risk_score": { "type": "integer" }
+          }
+        },
+        "stomach": {
+          "properties": {
+            "digestive_markers": {
+              "properties": {
+                "acid_reflux_level": { "type": "float" }
+              }
+            },
+            "stomach_symptoms": { "type": "text" },
+            "stomach_risk_score": { "type": "integer" }
+          }
+        },
+        "pancreas": {
+          "properties": {
+            "glucose_metabolism": {
+              "properties": {
+                "blood_glucose_fasting": { "type": "integer" },
+                "hba1c": { "type": "float" },
+                "insulin_level": { "type": "float" }
+              }
+            },
+            "pancreas_symptoms": { "type": "text" },
+            "pancreas_risk_score": { "type": "integer" }
+          }
+        },
+        "body_risk_score": { "type": "integer" }
+      }
+    }
+  }
+}

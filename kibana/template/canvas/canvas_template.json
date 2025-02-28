@@ -1,0 +1,746 @@
+{
+  "css": ".canvasPage {\n\n}",
+  "variables": [],
+  "id": "workpad-3fbb4efd-366e-4080-a354-0c85c68a90f0",
+  "name": "Copy of Health Dashboard",
+  "width": 1080,
+  "height": 720,
+  "page": 0,
+  "pages": [
+    {
+      "id": "page-f6c3d252-7567-4c58-949a-39711c243bb6",
+      "style": {
+        "background": "#000000"
+      },
+      "transition": {},
+      "elements": [
+        {
+          "id": "element-010e7351-53ec-48e6-897b-57ed92307e80",
+          "position": {
+            "left": -8,
+            "top": -28.75,
+            "width": 644,
+            "height": 749.75,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6ImFteG5kY3lmOXE2MGs1Y2c0YW11aXV5cSJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImZpbGwifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-88044e49-d468-4f83-b793-a0251fc767f7",
+          "position": {
+            "left": 176,
+            "top": 53.5,
+            "width": 265.5,
+            "height": 616.5,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6InF1cXB3d292c294aGhhdGZ1eHRtc3lyMiJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-4ec8a883-da05-4931-bea9-9244b0171e5c",
+          "position": {
+            "left": 441.5,
+            "top": 53.5,
+            "width": 91.5,
+            "height": 77,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Men's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Men's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-aedb29a3-a9f9-4d1f-8447-9eb422b87ea5",
+          "position": {
+            "left": 480,
+            "top": 69,
+            "width": 91,
+            "height": 88,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6ImY5enM1OGhnZXlvOWwybndwNHh4ODlkayJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-bc7bbd54-0da1-4558-8ac2-ecc90461078f",
+          "position": {
+            "left": 441.5,
+            "top": 171,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Women's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Women's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-2ed8df44-952f-4034-9e61-f3738dec9b40",
+          "position": {
+            "left": 441.5,
+            "top": 301,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Men's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Men's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-2265ff66-01f1-42a2-a814-34d4846ff84f",
+          "position": {
+            "left": 441.5,
+            "top": 441,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Women's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Women's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-965adf6f-b8fb-4a73-999d-54446ec826cd",
+          "position": {
+            "left": 441.5,
+            "top": 565,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Women's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Women's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-33bf8657-6341-42e9-9f3b-b73d8a3e99b3",
+          "position": {
+            "left": 465,
+            "top": 186,
+            "width": 106,
+            "height": 94,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6Imc4YXVjYWJlbGZjejFmdWpubHc4eXhwdyJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-103c4dbf-050a-4f43-aa4d-850888c63fcb",
+          "position": {
+            "left": 471,
+            "top": 333,
+            "width": 94,
+            "height": 82,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6ImljaXZ4Zzk0bGF4Yzkwbm9yZjI2OTBxbSJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-d97839dc-01da-4878-97c9-2cb7bfd2c96a",
+          "position": {
+            "left": 466,
+            "top": 469,
+            "width": 102,
+            "height": 80,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6Im10aW51MnF6bDR4dGk2NmhubnVzNmo5NiJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-04c6eaa2-df24-486b-b6ca-0eb090104f7f",
+          "position": {
+            "left": 470,
+            "top": 584,
+            "width": 100,
+            "height": 95,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6Im80eWJubGZ6eDZkNGtmaHJ1dnhmc2lzaCJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-7bdda71f-64f4-416d-88ac-29d36f301c27",
+          "position": {
+            "left": 58.5,
+            "top": 46,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Women's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Women's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-c39da858-2868-44da-838a-55d0dd45b17c",
+          "position": {
+            "left": 58.5,
+            "top": 177,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Men's Shoes\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle color=\"#f8bd4a\" label=\"Men's Shoes\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-be71cd33-01f5-4cbe-a3df-c56dd8db2941",
+          "position": {
+            "left": 58.5,
+            "top": 301,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Women's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Women's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-3f074dd4-1439-4c6c-90ab-1342e24685fd",
+          "position": {
+            "left": 58.5,
+            "top": 441,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Men's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Men's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-aa9729f8-9225-41b4-b7b0-021ed4359838",
+          "position": {
+            "left": 64.5,
+            "top": 559,
+            "width": 88,
+            "height": 85,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Men's Shoes\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Men's Shoes\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-439552de-7eca-4c64-a90f-62e6b120b848",
+          "position": {
+            "left": 93,
+            "top": 584,
+            "width": 86,
+            "height": 90,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6Im00NWw1c3h1ZjlsYnYwN2x1NzBrM3dwcSJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-83f6ef57-3198-4564-92e2-753ee3cff297",
+          "position": {
+            "left": 83,
+            "top": 457,
+            "width": 106,
+            "height": 102,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6ImQzMGEybTkzZXNyeWMxOXE3NWlnZXBpMiJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-64490d26-3b05-415a-bd51-d9563f692030",
+          "position": {
+            "left": 93,
+            "top": 333,
+            "width": 94,
+            "height": 82,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6ImQ5bHRvZXFpaTh0NDFxZmwyeGx1NXZtMiJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-2da839c2-c56e-41a9-99a7-734ae5c56793",
+          "position": {
+            "left": 79.5,
+            "top": 183,
+            "width": 100,
+            "height": 101,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6InV2MHoxbXNlcWkzeGc5N3NrZ216M2cxeCJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-a7d05dcc-9174-4c4b-b33c-09dfe5aa0045",
+          "position": {
+            "left": 73,
+            "top": 69,
+            "width": 93,
+            "height": 80,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6ImpxbThuZ3RycDV0NXNidGJrNWV4OGxhayJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-b691523a-9162-4583-ab97-2e16b74769e5",
+          "position": {
+            "left": 467,
+            "top": 323,
+            "width": 51,
+            "height": 34,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(kidneys.kidney_risk_score, 0) as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-e672a9ea-9a81-4a4e-93d0-4ec4291fb0f3",
+          "position": {
+            "left": 77.5,
+            "top": 323,
+            "width": 62,
+            "height": 37,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(liver.liver_risk_score,0)  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-b39427c4-6b86-46b9-8c9b-7d08e09c96bd",
+          "position": {
+            "left": 77,
+            "top": 461.5,
+            "width": 51,
+            "height": 34,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(intestines.intestinal_risk_score,0)  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-9f78512c-b4e9-4511-9f16-64e116fa11f3",
+          "position": {
+            "left": 458.75,
+            "top": 586.5,
+            "width": 59,
+            "height": 30,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(pancreas.pancreas_risk_score,0)  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-5f54a9e1-ee96-48f1-a68f-948dbef685b0",
+          "position": {
+            "left": 459,
+            "top": 194.5,
+            "width": 59,
+            "height": 30,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(heart.heart_risk_score,0)  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-40f89bfd-368a-4a23-9db3-2e81ba5d7fa5",
+          "position": {
+            "left": 471,
+            "top": 71.5,
+            "width": 36,
+            "height": 34,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n     COALESCE(brain.brain_risk_score, 0) as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-fd55a58e-3d02-4708-80b9-f2df7cfa5586",
+          "position": {
+            "left": 462,
+            "top": 461.5,
+            "width": 62,
+            "height": 37,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(pancreas.pancreas_risk_score,0)  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-c0d3fdfa-615d-4976-8639-0d6a81297c7e",
+          "position": {
+            "left": 84,
+            "top": 580,
+            "width": 50,
+            "height": 33,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(bladder.bladder_risk_score,0)  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-cf77b59b-0994-4b20-814b-801a84daf55e",
+          "position": {
+            "left": 702,
+            "top": 41,
+            "width": 329,
+            "height": 665,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "shape \"square\" fill=\"#FFFFFF\" border=\"#000000\" borderWidth=\"\" maintainAspect=false\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-5ee3c9e0-f443-492d-beb7-ea6298b9543a",
+          "position": {
+            "left": 1579,
+            "top": 725,
+            "width": 500,
+            "height": 300,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable config=\"eyJpbWFnZUNvbmZpZyI6eyJzcmMiOnsidHlwZSI6ImZpbGUiLCJmaWxlSWQiOiJwdHpnZnhxNjBsOWwyOXVveXN0cHM0ZWIifSwiYWx0VGV4dCI6IiIsImJhY2tncm91bmRDb2xvciI6IiIsInNpemluZyI6eyJvYmplY3RGaXQiOiJmaWxsIn19LCJlbmhhbmNlbWVudHMiOnt9fQ==\" type=\"image\" | render",
+          "filter": null
+        },
+        {
+          "id": "element-1b3ab7a1-18e1-42f8-ade3-884ee9c34133",
+          "position": {
+            "left": 702,
+            "top": 41,
+            "width": 329,
+            "height": 81,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "shape \"square\" fill=\"#BBBBBB\" border=\"rgba(255,255,255,0)\" borderWidth=0 maintainAspect=false\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-e8e67e90-b168-41e2-82af-2a513a1c2156",
+          "position": {
+            "left": 810,
+            "top": 68.75,
+            "width": 156,
+            "height": 40.5,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    top_organ.name as name\n  FROM \\\"medical_records\\\"\n ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown \"#### \" {getCell \"name\"} ",
+          "filter": null
+        },
+        {
+          "id": "element-00ba895d-0fe4-4d53-916b-aec4ad59b319",
+          "position": {
+            "left": 983,
+            "top": 24.375,
+            "width": 48,
+            "height": 47.625,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6Im9tcjhrMGRnN2E5amNkOXhqYWsxbGt4cCJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-134ec772-0062-49be-9643-e7ce8a714b61",
+          "position": {
+            "left": 709,
+            "top": 153.375,
+            "width": 313,
+            "height": 99.5,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "shape \"square\" fill=\"#f2a4c5\" border=\"rgba(255,255,255,0)\" borderWidth=0 maintainAspect=false\n| render containerStyle={containerStyle opacity=\"0.9\" padding=\"3px\" borderRadius=\"20px\"}",
+          "filter": null
+        },
+        {
+          "id": "element-c06cb5d8-65b2-4ce8-850d-e62ed02bebc2",
+          "position": {
+            "left": 709,
+            "top": 260,
+            "width": 313,
+            "height": 102,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "shape \"square\" fill=\"#f2a4c5\" border=\"rgba(255,255,255,0)\" borderWidth=0 maintainAspect=false\n| render containerStyle={containerStyle opacity=\"0.9\" padding=\"3px\" borderRadius=\"20px\"}",
+          "filter": null
+        },
+        {
+          "id": "element-76373171-b655-4f4c-859b-963d21380cc3",
+          "position": {
+            "left": 713,
+            "top": 366,
+            "width": 309,
+            "height": 311,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "shape \"square\" fill=\"#FFFFFF\" border=\"rgba(255,255,255,0)\" borderWidth=0 maintainAspect=false\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-4b003f2f-e76a-4a8e-b155-c02b2126aad7",
+          "position": {
+            "left": 804,
+            "top": 164.875,
+            "width": 195,
+            "height": 77.125,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    top_metric1.value as value,top_metric1.name as name, top_metric1.base_value as base_value\n  FROM \\\"medical_records\\\"\n ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown \"#### \" {getCell \"name\"} \"     \" {getCell \"value\"} \" vs \" {getCell \"base_value\"}\n",
+          "filter": null
+        },
+        {
+          "id": "element-d5dac534-d6c9-4cbd-a942-fc0c0f0fb6f7",
+          "position": {
+            "left": 804,
+            "top": 274,
+            "width": 208.5,
+            "height": 59,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    top_metric2.value as value,top_metric2.name as name, top_metric2.base_value as base_value\n  FROM \\\"medical_records\\\"\n ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown \"#### \" {getCell \"name\"} \n {getCell \"value\"} \" vs \" {getCell \"base_value\"}",
+          "filter": null
+        },
+        {
+          "id": "element-a2f444bb-46a3-49e2-b693-77dc087b25c0",
+          "position": {
+            "left": 718.5,
+            "top": 371.5,
+            "width": 294,
+            "height": 326.75,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  query=\"SELECT \n    report_data as report_data\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown \n {getCell 'report_data' }",
+          "filter": null
+        },
+        {
+          "id": "element-743e673f-f0f1-4eef-b916-091bdc13f0e3",
+          "position": {
+            "left": 500.125,
+            "top": 592.5,
+            "width": 235.375,
+            "height": 181.5,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6InhhOXJwcTc4eWFydnphcThmb3kzaHpkaSJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-577066f7-7985-4205-9dc7-1d7424afe9ea",
+          "position": {
+            "left": 85,
+            "top": 72,
+            "width": 36,
+            "height": 34,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    COALESCE(stomach.stomach_risk_score,0)  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-3bf529cc-6b9e-4cd8-90a2-20f70da4481e",
+          "position": {
+            "left": 226.5,
+            "top": 534.875,
+            "width": 157.5,
+            "height": 139,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT category, COUNT(category) AS count FROM \\\"kibana_sample_data_ecommerce\\\" GROUP BY category\"\n| mapColumn \"category\" \n  fn={if {getCell \"category\" | eq \"Men's Accessories\"} then={getCell \"category\"} else=\"Other\"}\n| ply by=\"category\" fn={math \"sum(count)\" | as \"count\"}\n| staticColumn \"total\" value={math \"sum(count)\"}\n| mapColumn \"percentage\" fn={math \"round(count/total * 100, 2)\"}\n| pointseries color=\"category\" size=\"percentage\"\n| pie hole=75 labels=false seriesStyle={seriesStyle label=\"Men's Accessories\" color=\"#f8bd4a\"}\n  seriesStyle={seriesStyle label=\"Other\" color=\"#4fbf48\"}",
+          "filter": null
+        },
+        {
+          "id": "element-9e596274-340e-438f-b860-6613457051b8",
+          "position": {
+            "left": 279.75,
+            "top": 584.5,
+            "width": 51,
+            "height": 34,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    body_risk_score  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-c3939d42-c666-42eb-ad32-8ab5787906bf",
+          "position": {
+            "left": 218.5,
+            "top": 500,
+            "width": 180.5,
+            "height": 34.875,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "kibana\n| selectFilter\n| demodata\n| markdown \"### Overall Risk Score\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-da1e9d8d-f541-41da-ac9c-e95e8a4ebd65",
+          "position": {
+            "left": 560,
+            "top": 672.703125,
+            "width": 66,
+            "height": 21.09375,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    name,age,gender\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"name\"}  \n  font={font family=\"Avenir\" size=11 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-44dd9cd5-39a7-4eb6-aa19-ae088e5cde67",
+          "position": {
+            "left": 540,
+            "top": 687.703125,
+            "width": 66,
+            "height": 26.09375,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    name,age,gender\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"gender\"}  \n  font={font family=\"Avenir\" size=11 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-d0345bda-a5a9-4195-af36-12bdced79830",
+          "position": {
+            "left": 585,
+            "top": 687.703125,
+            "width": 51,
+            "height": 26.09375,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    name,age,gender\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"age\"}  \n  font={font family=\"Avenir\" size=11 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        },
+        {
+          "id": "element-e5179636-4c2e-4309-8389-bf0c76751056",
+          "position": {
+            "left": 676,
+            "top": 42.5,
+            "width": 174,
+            "height": 93,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6InZ3c2V2bTNuenlnY2RmN2drMDd5cGVmZCJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-06aa4ea8-6b5f-43c5-ac1c-919b2f66c841",
+          "position": {
+            "left": 676,
+            "top": 133,
+            "width": 166,
+            "height": 109,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6InV0cHdrZjlvMGx0dHExeTFzenRndzh3aiJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-f6a1bd0c-255e-41ca-9830-a2c720c4d582",
+          "position": {
+            "left": 718.5,
+            "top": 256,
+            "width": 108,
+            "height": 93,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "embeddable \n  config=\"eyJoaWRlUGFuZWxUaXRsZXMiOnRydWUsImVuaGFuY2VtZW50cyI6eyJkeW5hbWljQWN0aW9ucyI6eyJldmVudHMiOltdfX0sImltYWdlQ29uZmlnIjp7InNyYyI6eyJ0eXBlIjoiZmlsZSIsImZpbGVJZCI6ImgwZmRnMzN3Y241ZHY4am90ODZpc3dtZSJ9LCJhbHRUZXh0IjoiIiwiYmFja2dyb3VuZENvbG9yIjoiIiwic2l6aW5nIjp7Im9iamVjdEZpdCI6ImNvbnRhaW4ifX19\" type=\"image\"\n| render",
+          "filter": null
+        },
+        {
+          "id": "element-8f80d4c8-ad8b-413a-9176-46dc937fe4c0",
+          "position": {
+            "left": 85,
+            "top": 199,
+            "width": 36,
+            "height": 34,
+            "angle": 0,
+            "parent": null
+          },
+          "expression": "essql \n  \"SELECT \n    0  as risk\n  FROM \\\"medical_records\\\"\n  ORDER BY last_updated DESC\n  LIMIT 1\"\n| markdown {getCell \"risk\"} \"%\" \n  font={font family=\"Avenir\" size=24 align=\"center\" color=\"#000\" weight=\"normal\" underline=false italic=false}",
+          "filter": null
+        }
+      ],
+      "groups": []
+    }
+  ],
+  "colors": [
+    "#37988d",
+    "#c19628",
+    "#b83c6f",
+    "#3f9939",
+    "#1785b0",
+    "#ca5f35",
+    "#45bdb0",
+    "#f2bc33",
+    "#e74b8b",
+    "#4fbf48",
+    "#1ea6dc",
+    "#fd7643",
+    "#72cec3",
+    "#f5cc5d",
+    "#ec77a8",
+    "#7acf74",
+    "#4cbce4",
+    "#fd986f",
+    "#a1ded7",
+    "#f8dd91",
+    "#f2a4c5",
+    "#a6dfa2",
+    "#86d2ed",
+    "#fdba9f",
+    "#000000",
+    "#444444",
+    "#777777",
+    "#BBBBBB",
+    "#FFFFFF",
+    "rgba(255,255,255,0)"
+  ],
+  "isWriteable": true,
+  "assets": {},
+  "@timestamp": "2025-02-28T05:05:39.900Z",
+  "@created": "2025-02-27T18:46:47.167Z"
+}
