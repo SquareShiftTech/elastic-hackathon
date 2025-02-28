@@ -1,0 +1,174 @@
+Analyze the following medical report and extract the relevant data in the following format:
+
+{{
+    "@timestamp": "{timestamp}",
+    "last_updated": "{timestamp}",
+    "patient_id": "{auto_id}",
+    "name": "John Doe",
+    "age": 55,
+    "gender": "Male",
+    "blood_type": "A+",
+    "weight_kg": 82,
+    "height_cm": 175,
+    "bmi": 26.8,
+    "diagnosis": "Type 2 Diabetes",
+    "report_date": "2025-02-27",
+    "vital_signs": {{
+    "temperature": 37.1,
+    "pulse": 78,
+    "respiratory_rate": 16,
+    "blood_pressure_systolic": 135,
+    "blood_pressure_diastolic": 90,
+    "oxygen_saturation": 98
+    }},
+    "heart": {{
+    "basic_metrics": {{
+        "heart_rate": 78,
+        "blood_pressure_systolic": 135,
+        "blood_pressure_diastolic": 90,
+        "heart_rhythm": "Normal Sinus Rhythm"
+    }},
+    "cardiac_markers": {{
+        "troponin": 0.02,
+        "bnp": 85,
+        "ck_mb": 3.2
+    }},
+    "lipid_panel": {{
+        "cholesterol_total": 210,
+        "hdl": 35,
+        "ldl": 140,
+        "triglycerides": 180,
+        "cholesterol_ratio": 6
+    }},
+    "heart_symptoms": "Mild chest pain",
+    "heart_risk_score": 7,
+    "heart_risk_factors": [
+        "Family History",
+        "High Cholesterol",
+        "Hypertension"
+    ]
+    }},
+    "lungs": {{
+    "respiratory_metrics": {{
+        "lung_capacity": 4.5,
+        "fev1": 3.2,
+        "fvc": 4,
+        "fev1_fvc_ratio": 0.8,
+        "peak_flow": 550,
+        "oxygen_saturation": 98,
+        "respiratory_rate": 16
+    }},
+    "lung_symptoms": "No major symptoms",
+    "lung_risk_score": 2
+    }},
+    "kidneys": {{
+    "blood_tests": {{
+        "creatinine_level": 1.2,
+        "bun": 18,
+        "gfr": 60
+    }},
+    "kidney_symptoms": "Occasional swelling",
+    "kidney_risk_score": 5
+    }},
+    "liver": {{
+    "liver_function_tests": {{
+        "alt": 40,
+        "ast": 38,
+        "bilirubin_total": 1
+    }},
+    "liver_symptoms": "Mild fatigue",
+    "liver_risk_score": 4
+    }},
+    "brain": {{
+    "cognitive_assessment": {{
+        "mental_alertness_score": 85
+    }},
+    "brain_symptoms": "Mild forgetfulness",
+    "brain_risk_score": 3
+    }},
+    "stomach": {{
+    "digestive_markers": {{
+        "acid_reflux_level": 3.2
+    }},
+    "stomach_symptoms": "Occasional acid reflux",
+    "stomach_risk_score": 4
+    }},
+    "pancreas": {{
+    "glucose_metabolism": {{
+        "blood_glucose_fasting": 180,
+        "hba1c": 8.5,
+        "insulin_level": 12
+    }},
+    "pancreas_symptoms": "High glucose levels",
+    "pancreas_risk_score": 8
+    }},
+    "thyroid": {{
+    "thyroid_function": {{
+        "tsh": 4.2,
+        "t4": 1.1,
+        "t3": 2.8
+    }},
+    "thyroid_symptoms": "Normal function",
+    "thyroid_risk_score": 8
+    }},
+    "bladder": {{
+    "urinary_metrics": {{
+        "frequency": "Normal",
+        "urgency": "Low",
+        "nocturia": "Minimal"
+    }},
+    "bladder_symptoms": "No significant issues",
+    "bladder_risk_score": 2
+    }},
+    "reproductive": {{
+    "hormone_levels": {{
+        "testosterone": 450,
+        "psa": 2.1
+    }},
+    "reproductive_symptoms": "Age-appropriate function",
+    "reproductive_risk_score": 3
+    }},
+    "spleen": {{
+    "blood_metrics": {{
+        "white_blood_cells": 7.2,
+        "platelets": 250
+    }},
+    "spleen_symptoms": "Normal function",
+    "spleen_risk_score": 2
+    }},
+    "intestines": {{
+    "digestive_health": {{
+        "bowel_movements": "Regular",
+        "absorption": "Normal"
+    }},
+    "intestinal_symptoms": "Normal function",
+    "intestinal_risk_score": 4
+    }},
+    "top_metric1":{{
+        "value":"",
+        "name":"",
+        "base_value":""
+    }},
+    "top_metric2":{{
+        "value":"",
+        "name":"",
+        "base_value":""
+    }},
+    "top_organ":{{
+        "name":""
+    }},
+    "body_risk_score": 7,
+    "report_data":"Your heart needs care! Mr. Thompson's heart beat with a strong, steady rhythm, a testament to his healthy lifestyle His cardiac checkup revealed excellent blood pressure, cholesterol, and exceptional heart rate variability. Echocardiogram imaging showed robust ventricular function and pristine valve integrity. His physician remarked that his cardiovascular health was truly that of a younger man. He was given a clean bill of health, his stamina a credit to his heart's excellent condition."
+}}
+
+Extract the data for each organ system and include all available fields. 
+If the information is not provided in the report, leave the field empty or set it to "N/A" if it is string data or "0" if it is numeric data. 
+calulate all the risk scores out of 10 based on the data and mark low risk if there is no data. Make sure to provide accurate numerical values where applicable.
+generate report_data in json dynamically based on the report 
+Also genearte data for topmetric1, topmetric2 and toporgan based on the data with correct base value to compare with actual value to visulaize deeper in UI
+Give json output for the data extracted from the report and add zero values if any organ data is not available in json.
+
+Strictly give only the json output dont add any text.
+
+Here is the extracted report content:
+{pdf_text}
