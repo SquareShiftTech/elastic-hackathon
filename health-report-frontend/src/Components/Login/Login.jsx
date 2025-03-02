@@ -45,6 +45,7 @@ export const Login = () => {
       const result = await response.json();
       if (result.success) {
         localStorage.setItem("token", authCode);
+        localStorage.setItem("userName", userId);
         setMessage("Authentication successful!");
         navigate("/");
       } else {

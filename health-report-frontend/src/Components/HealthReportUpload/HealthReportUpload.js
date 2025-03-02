@@ -10,6 +10,8 @@ export const HealthReportUpload = () => {
   const [uploadStatus, setUploadStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const userName = localStorage.getItem("userName");
+
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
@@ -35,6 +37,7 @@ export const HealthReportUpload = () => {
 
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("user_id", userName);
 
     try {
       const progressInterval = setInterval(() => {
@@ -57,7 +60,7 @@ export const HealthReportUpload = () => {
       const data = await response.json();
 
       setUploadStatus("success");
-      navigate(`/video/${data?.patient_detail?.patient_id}`);
+      navigate(`/video/${data?.data?.patient_id}`);
     } catch (error) {
       setUploadStatus("error");
       setErrorMessage("Failed to upload file. Please try again.");

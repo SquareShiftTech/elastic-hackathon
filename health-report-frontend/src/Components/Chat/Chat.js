@@ -5,6 +5,8 @@ import { fetchData } from "../../apis/fetchData";
 
 export const Chat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const userName = localStorage.getItem("userName");
+
   const [messages, setMessages] = useState(() => {
     // Load messages from localStorage during the initial render
     const savedMessages = localStorage.getItem("chatMessages");
@@ -34,7 +36,7 @@ export const Chat = () => {
         body: {
           query: input,
           session_id: sessionId,
-          patient_id: "P-386725"
+          user_id: userName
         }
       });
 
