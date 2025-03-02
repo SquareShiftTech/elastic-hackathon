@@ -14,7 +14,7 @@ export const Login = () => {
   const sendCode = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_DOMAIN}/send-code`, {
+      const response = await fetch(`${process.env.REACT_APP_LOGIN_DOMAIN}/send-code`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId })
@@ -36,7 +36,7 @@ export const Login = () => {
   const verifyCode = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_DOMAIN}/verify-code`, {
+      const response = await fetch(`${process.env.REACT_APP_LOGIN_DOMAIN}/verify-code`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, authCode })

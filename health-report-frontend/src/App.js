@@ -3,6 +3,8 @@ import "./App.css";
 import { Header } from "./Components/Header/Header";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import { Login } from "./Components/Login/Login";
+import { HomePage } from "./Components/HomePage/HomePage";
+import { VideoPage } from "./Components/VideoPage/VideoPage";
 
 function App() {
   return (
@@ -16,7 +18,15 @@ function App() {
               path="/"
               element={
                 <PrivateRoute>
-                  <div>Dashboard Page</div>
+                  <HomePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/video/:id"
+              element={
+                <PrivateRoute>
+                  <VideoPage />
                 </PrivateRoute>
               }
             />
