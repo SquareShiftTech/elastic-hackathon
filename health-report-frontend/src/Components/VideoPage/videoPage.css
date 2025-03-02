@@ -1,0 +1,11 @@
+.video-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Adds spacing between videos */
+  padding: 24px;
+  margin-top: 20px;
+}
+
+.video-div {
+  width: 48%;
+}

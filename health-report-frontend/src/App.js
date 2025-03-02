@@ -5,6 +5,7 @@ import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import { Login } from "./Components/Login/Login";
 import { HomePage } from "./Components/HomePage/HomePage";
 import { VideoPage } from "./Components/VideoPage/VideoPage";
+import { Dashboard } from "./Components/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -27,6 +28,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <VideoPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/:id"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
                 </PrivateRoute>
               }
             />
