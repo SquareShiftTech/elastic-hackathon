@@ -17,7 +17,7 @@ export const VideoPage = () => {
       setError("");
       setIsLoading(true);
       const data = await fetchData({
-        url: `${process.env.REACT_APP_UPLOAD_PDF}/getVideo/${id}`
+        url: `${process.env.REACT_APP_BACKEND_DOMAIN}/getVideo/${id}`
       });
       setData(data);
       setIsLoading(false);

@@ -41,7 +41,7 @@ export const HealthReportUpload = () => {
         setUploadProgress((prev) => Math.min(prev + 10, 95));
       }, 200);
 
-      const response = await fetch(`${process.env.REACT_APP_UPLOAD_PDF}/upload_pdf`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_DOMAIN}/upload_pdf`, {
         method: "POST",
         body: formData
       });
