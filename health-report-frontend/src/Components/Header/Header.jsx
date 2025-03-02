@@ -5,8 +5,10 @@ import elasticLogo from "../../assets/elastic.png";
 import awsLogo from "../../assets/aws.png";
 
 import "./header.css";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className="header">
       <div className="logos">
@@ -30,6 +32,15 @@ export const Header = () => {
           className="text-vibrant-blue font-medium hover:text-vibrant-purple transition-colors">
           Dashboard
         </Link> */}
+        <div
+          style={{
+            cursor: "pointer"
+          }}
+          onClick={() => {
+            navigate("/");
+          }}>
+          Upload
+        </div>
         <h2 className="text-xl font-bold">
           <span className="text-blue-500">ShiftHealth</span>
           <span className="text-red-500">+</span>
