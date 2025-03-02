@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: rgb(240, 249, 255);
+  justify-content: space-between;
+}
+
+.header .logos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
