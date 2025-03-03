@@ -69,6 +69,12 @@
   margin-top: 10px;
   font-size: 14px;
 }
+.chat-logo {
+  width: 30px; /* Adjust size as needed */
+  height: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
 
 .chatbot-container {
   display: flex;
@@ -142,10 +148,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 15px;
   margin-left: 16px;
-  border-radius: 48px;
+  border-radius: 40px;
+  width: 95%;
+  max-width: 600px;
 }
 
 .footer {
@@ -155,6 +163,8 @@
   border-radius: 48px;
   width: 100%;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
 }
 
 .query-input {
@@ -174,7 +184,7 @@
 .send-button-container {
   padding: 10px;
   margin-right: 10px;
-  background: #4caf50;
+  background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -185,7 +195,7 @@
 }
 
 .send-button-container:hover {
-  background: #388e3c;
+  background: #add8e6;
 }
 
 .edc-loader {

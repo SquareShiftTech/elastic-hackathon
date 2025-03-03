@@ -8,7 +8,6 @@ export const Chat = () => {
   const userName = localStorage.getItem("userName");
 
   const [messages, setMessages] = useState(() => {
-    // Load messages from localStorage during the initial render
     const savedMessages = localStorage.getItem("chatMessages");
     return savedMessages ? JSON.parse(savedMessages) : [];
   });
@@ -16,7 +15,6 @@ export const Chat = () => {
   const [sessionId] = useState(Math.random().toString(36).substring(2, 15));
   const [loading, setLoading] = useState(false);
 
-  // Save messages to localStorage whenever they are updated
   useEffect(() => {
     localStorage.setItem("chatMessages", JSON.stringify(messages));
   }, [messages]);
@@ -24,7 +22,6 @@ export const Chat = () => {
   const handleSendMessage = async () => {
     if (loading || !input.trim()) return;
 
-    // Add the user's message
     const userMessage = { sender: "user", content: input };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
@@ -40,7 +37,6 @@ export const Chat = () => {
         }
       });
 
-      // Add the bot's response
       const botMessage = { sender: "bot", content: data.response };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
     } catch (error) {
@@ -75,15 +71,16 @@ export const Chat = () => {
         <div className="chat-window">
           <div className="chatbot-container">
             <div className="header-container">
-              <div>Chat</div>
+              <img src="/chatlogo.png" alt="Chatbot Logo" className="chat-logo" />
+              <div>Chat with our bot</div>
               <button
                 className="close-btn"
                 onClick={() => setIsOpen(false)}
                 style={{
                   position: "absolute",
                   right: "20px",
-                  fontSize: "24px",
-                  color: "red"
+                  fontSize: "20px",
+                  color: "grey"
                 }}>
                 ✖
               </button>
@@ -94,11 +91,10 @@ export const Chat = () => {
                 <div
                   key={index}
                   className={`message ${msg.sender === "user" ? "user-message" : "bot-message"}`}
-                  dangerouslySetInnerHTML={{ __html: msg.content }} // Render HTML from response
+                  dangerouslySetInnerHTML={{ __html: msg.content }}
                 />
               ))}
 
-              {/* Show loader when API is loading */}
               {loading && (
                 <div className="edc-loader">
                   <div className="dot dot1"></div>
@@ -121,7 +117,7 @@ export const Chat = () => {
               </div>
 
               <div className="send-button-container" onClick={handleSendMessage}>
-                <i className="fas fa-paper-plane" style={{ color: "white" }}></i>
+                <i className="fas fa-paper-plane" style={{ color: "blue" }}></i>
               </div>
             </div>
           </div>

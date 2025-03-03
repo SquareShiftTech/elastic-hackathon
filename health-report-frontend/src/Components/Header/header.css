@@ -14,3 +14,15 @@
   align-items: center;
   gap: 10px;
 }
+
+.header-container-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.edc-upload-label {
+  cursor: pointer;
+}

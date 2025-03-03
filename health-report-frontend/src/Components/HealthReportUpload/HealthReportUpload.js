@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import "./HealthReportUpload.css";
 import { useNavigate } from "react-router-dom";
+import PoweredByFooter from "../PowerByFooter/PoweredByFooter";
 
 export const HealthReportUpload = () => {
   const [file, setFile] = useState(null);
@@ -110,6 +111,7 @@ export const HealthReportUpload = () => {
         className="button button-primary">
         {isUploading ? "Uploading..." : "Upload health Report"}
       </button>
+      <PoweredByFooter />
     </div>
   );
 };

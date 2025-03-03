@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress, Stack } from "@mui/material";
+import PoweredByFooter from "../PowerByFooter/PoweredByFooter";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -116,6 +117,7 @@ export const Login = () => {
 
         <p className="message">{message}</p>
       </div>
+      <PoweredByFooter />
     </div>
   );
 };

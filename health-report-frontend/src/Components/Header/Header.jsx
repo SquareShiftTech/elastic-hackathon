@@ -1,27 +1,15 @@
 import React from "react";
 
-import companyLogo from "../../assets/squareshift2.png";
-import elasticLogo from "../../assets/elastic.png";
-import awsLogo from "../../assets/aws.png";
-
 import "./header.css";
 import { useNavigate } from "react-router-dom";
+import SqsLogo from "../../assets/square.png";
 
 export const Header = () => {
   const navigate = useNavigate();
+
   return (
     <div className="header">
-      <div className="logos">
-        <img src={companyLogo} alt="SquareShift" width={140} height={45} />
-        <img src={elasticLogo} alt="Elastic" width={100} height={45} />
-        <img src={awsLogo} alt="AWS" width={70} height={45} />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px"
-        }}>
+      <div className="header-container-block">
         {/* <Link
           href="/"
           className="text-vibrant-blue font-medium hover:text-vibrant-purple transition-colors">
@@ -32,19 +20,25 @@ export const Header = () => {
           className="text-vibrant-blue font-medium hover:text-vibrant-purple transition-colors">
           Dashboard
         </Link> */}
-        <div
-          style={{
-            cursor: "pointer"
+
+        {/* <h2 className="text-xl font-bold sqs-label"> */}
+        <img
+          src={SqsLogo}
+          alt="SQS"
+          width={200}
+          height={200}
+          onClick={() => {
+            navigate("/");
           }}
+        />
+        {/* </h2> */}
+        {/* <div
+          className="edc-upload-label"
           onClick={() => {
             navigate("/");
           }}>
           Upload
-        </div>
-        <h2 className="text-xl font-bold">
-          <span className="text-blue-500">ShiftHealth</span>
-          <span className="text-red-500">+</span>
-        </h2>
+        </div> */}
       </div>
     </div>
   );
