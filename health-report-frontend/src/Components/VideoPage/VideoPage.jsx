@@ -11,7 +11,7 @@ export const VideoPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const userName = localStorage.getItem("userName");
+  const reportInfo = localStorage.getItem("reportInfo");
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -23,10 +23,7 @@ export const VideoPage = () => {
       setIsLoading(true);
       const data = await fetchData({
         url: `${process.env.REACT_APP_BACKEND_DOMAIN}/create_video`,
-        body: {
-          user_id: userName,
-          patient_id: id
-        }
+        body: JSON.parse(reportInfo)?.data
       });
       setData(data);
       setIsLoading(false);
@@ -34,7 +31,7 @@ export const VideoPage = () => {
       setIsLoading(false);
       setError("Something went wrong, please try again later");
     }
-  }, []);
+  }, [reportInfo]);
 
   useEffect(() => {
     if (id) {

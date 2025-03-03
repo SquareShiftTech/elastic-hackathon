@@ -60,6 +60,8 @@ export const HealthReportUpload = () => {
       // Assuming the response is in JSON format
       const data = await response.json();
 
+      localStorage.setItem("reportInfo", JSON.stringify(data));
+
       setUploadStatus("success");
       navigate(`/video/${data?.data?.user?.id ?? "P-388772"}`);
     } catch (error) {
