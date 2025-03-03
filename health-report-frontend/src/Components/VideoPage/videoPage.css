@@ -9,3 +9,13 @@
 .video-div {
   width: 48%;
 }
+
+.videoPage {
+  background-image: url("../../assets/video.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(100vh - 100px);
+  position: absolute;
+  width: 100vw;
+}

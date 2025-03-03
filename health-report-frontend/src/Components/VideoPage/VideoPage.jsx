@@ -46,7 +46,7 @@ export const VideoPage = () => {
   }
 
   return (
-    <div>
+    <div className="videoPage">
       {error ? (
         <div
           style={{
@@ -59,14 +59,24 @@ export const VideoPage = () => {
       ) : (
         <div className="video-container">
           <div className="video-div">
-            <h3>Current one </h3>
+            <h3
+              style={{
+                textAlign: "center"
+              }}>
+              Unhealthy life
+            </h3>
             <video controls width="100%">
               <source src={data?.bad} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
           <div className="video-div">
-            <h3>Improved one </h3>
+            <h3
+              style={{
+                textAlign: "center"
+              }}>
+              Healthy life
+            </h3>
             <video controls width="100%">
               <source src={data?.good} type="video/mp4" />
               Your browser does not support the video tag.
@@ -76,9 +86,14 @@ export const VideoPage = () => {
       )}
       <div
         style={{
-          textAlign: "center"
+          display: "flex",
+          justifyContent: "center"
         }}>
         <button
+          style={{
+            width: "200px"
+          }}
+          className="button button-primary"
           onClick={() => {
             navigate(`/dashboard/${id}`);
           }}>
