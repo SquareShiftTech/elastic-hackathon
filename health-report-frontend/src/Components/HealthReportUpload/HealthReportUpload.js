@@ -71,13 +71,12 @@ export const HealthReportUpload = () => {
 
   return (
     <div className="health-report-upload">
-      {/* File Input */}
       <div className="file-input-container">
         <button
           className="button button-outline"
           onClick={() => document.getElementById("file-upload").click()}
           disabled={isUploading}>
-          Select PDF
+          {file ? file.name : "Select PDF"}
         </button>
         <input
           id="file-upload"
@@ -87,7 +86,6 @@ export const HealthReportUpload = () => {
           onChange={handleFileChange}
           disabled={isUploading}
         />
-        <span>{file ? file.name : "No file selected"}</span>
       </div>
 
       {/* Error Message */}
@@ -110,7 +108,7 @@ export const HealthReportUpload = () => {
         onClick={uploadFile}
         disabled={!file || isUploading}
         className="button button-primary">
-        {isUploading ? "Uploading..." : "Upload Report"}
+        {isUploading ? "Uploading..." : "Upload health Report"}
       </button>
     </div>
   );
