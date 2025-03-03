@@ -4,6 +4,9 @@ import "./videoPage.css";
 import { useCallback, useEffect, useState } from "react";
 import { fetchData } from "../../apis/fetchData";
 
+import unhealthy from "../../assets/unhealthy.webp";
+import healthy from "../../assets/healthy.webp";
+
 export const VideoPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -65,7 +68,7 @@ export const VideoPage = () => {
               }}>
               Unhealthy life
             </h3>
-            <video controls width="100%">
+            <video controls width="100%" height="375px" poster={unhealthy}>
               <source src={data?.bad} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -77,7 +80,7 @@ export const VideoPage = () => {
               }}>
               Healthy life
             </h3>
-            <video controls width="100%">
+            <video controls width="100%" height="375px" poster={healthy}>
               <source src={data?.good} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
