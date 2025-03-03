@@ -16,6 +16,7 @@
   height: calc(100vh - 100px);
   position: absolute;
   width: 100vw;
+  height: -webkit-fill-available;
 }
 
 /* File input container */
