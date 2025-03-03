@@ -4,12 +4,14 @@ import "./videoPage.css";
 import { useCallback, useEffect, useState } from "react";
 import { fetchData } from "../../apis/fetchData";
 
-import unhealthy from "../../assets/unhealthy.webp";
-import healthy from "../../assets/healthy.webp";
+// import unhealthy from "../../assets/unhealthy.webp";
+// import healthy from "../../assets/healthy.webp";
 
 export const VideoPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const userName = localStorage.getItem("userName");
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,7 +22,11 @@ export const VideoPage = () => {
       setError("");
       setIsLoading(true);
       const data = await fetchData({
-        url: `${process.env.REACT_APP_BACKEND_DOMAIN}/create_video`
+        url: `${process.env.REACT_APP_BACKEND_DOMAIN}/create_video`,
+        body: {
+          user_id: userName,
+          patient_id: id
+        }
       });
       setData(data);
       setIsLoading(false);
