@@ -60,7 +60,7 @@ export const HealthReportUpload = () => {
       const data = await response.json();
 
       setUploadStatus("success");
-      navigate(`/video/${data?.data?.patient_id}`);
+      navigate(`/video/${data?.data?.user?.id ?? "P-388772"}`);
     } catch (error) {
       setUploadStatus("error");
       setErrorMessage("Failed to upload file. Please try again.");
