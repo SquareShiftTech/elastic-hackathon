@@ -32,13 +32,13 @@ export const Header = () => {
           }}
         />
         {/* </h2> */}
-        {/* <div
+        <div
           className="edc-upload-label"
           onClick={() => {
-            navigate("/");
+            navigate("/history");
           }}>
-          Upload
-        </div> */}
+          Records
+        </div>
       </div>
     </div>
   );

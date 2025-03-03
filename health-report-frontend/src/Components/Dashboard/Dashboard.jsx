@@ -8,7 +8,7 @@ export const Dashboard = () => {
         title="canvas"
         width={"100%"}
         height={"100%"}
-        src="https://ss-pet-store.kb.us-central1.gcp.cloud.es.io/app/canvas/workpad/workpad-3fbb4efd-366e-4080-a354-0c85c68a90f0/page/1?__fullScreen=true&auth_provider_hint=anonymous1"
+        src="https://squareshift-hackathon.kb.us-east-2.aws.elastic-cloud.com/app/canvas/workpad/workpad-47a582cc-c922-4334-bbbd-4a763dd5d830/page/1?__fullScreen=true&auth_provider_hint=anonymous1"
       />
     </div>
   );

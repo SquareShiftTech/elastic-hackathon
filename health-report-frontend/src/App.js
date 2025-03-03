@@ -6,6 +6,7 @@ import { Login } from "./Components/Login/Login";
 import { HomePage } from "./Components/HomePage/HomePage";
 import { VideoPage } from "./Components/VideoPage/VideoPage";
 import { Dashboard } from "./Components/Dashboard/Dashboard";
+import { HistoryPage } from "./Components/HistoryPage/HistoryPage";
 
 function App() {
   return (
@@ -36,6 +37,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/history"
+              element={
+                <PrivateRoute>
+                  <HistoryPage />
                 </PrivateRoute>
               }
             />
