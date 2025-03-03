@@ -68,7 +68,7 @@ export const VideoPage = () => {
               }}>
               Unhealthy life
             </h3>
-            <video controls width="100%" height="375px" poster={unhealthy}>
+            <video controls width="100%" height="375px" poster={data?.bad}>
               <source src={data?.bad} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -80,7 +80,7 @@ export const VideoPage = () => {
               }}>
               Healthy life
             </h3>
-            <video controls width="100%" height="375px" poster={healthy}>
+            <video controls width="100%" height="375px" poster={data?.good}>
               <source src={data?.good} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
