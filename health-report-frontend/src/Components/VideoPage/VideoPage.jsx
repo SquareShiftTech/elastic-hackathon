@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./videoPage.css";
 import { useCallback, useEffect, useState } from "react";
 import { fetchData } from "../../apis/fetchData";
+import video1 from "../../assets/video1.mp4";
 
 // import unhealthy from "../../assets/unhealthy.webp";
 // import healthy from "../../assets/healthy.webp";
@@ -64,27 +65,13 @@ export const VideoPage = () => {
         </div>
       ) : (
         <div className="video-container">
-          <div className="video-div">
-            <h3
-              style={{
-                textAlign: "center"
-              }}>
-              Unhealthy life
-            </h3>
-            <video controls width="100%" height="375px" poster={data?.bad}>
-              <source src={data?.bad} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div className="video-div">
-            <h3
-              style={{
-                textAlign: "center"
-              }}>
-              Healthy life
-            </h3>
-            <video controls width="100%" height="375px" poster={data?.good}>
-              <source src={data?.good} type="video/mp4" />
+          <div
+            className="video-div"
+            style={{
+              margin: "auto"
+            }}>
+            <video controls width="100%" height="375px">
+              <source src={video1} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
